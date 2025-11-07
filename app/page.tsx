@@ -267,7 +267,7 @@ export default function Home() {
               borderColor: siteConfig.colors.midBg
             }}
           >
-            <p>© 2024 {siteConfig.name}. All rights reserved.</p>
+            <p>© 2025 {siteConfig.name}. All rights reserved.</p>
           </div>
         </div>
       </main>
