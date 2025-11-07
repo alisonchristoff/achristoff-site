@@ -54,11 +54,11 @@ export default function Home() {
                 style={{ borderColor: siteConfig.colors.sage }}
               />
             </div>
-            <h1 
+            <h1
               className="text-4xl sm:text-5xl font-bold mb-2"
-              style={{ 
+              style={{
                 color: siteConfig.colors.text,
-                fontFamily: 'Georgia, serif'
+                fontFamily: 'var(--font-bitter), serif'
               }}
             >
               {siteConfig.profile.name}
@@ -126,11 +126,11 @@ export default function Home() {
                     </div>
                   )}
                   <div className="flex-1 min-w-0">
-                    <h3 
+                    <h3
                       className="text-lg font-semibold mb-1 transition-colors"
-                      style={{ 
+                      style={{
                         color: siteConfig.colors.text,
-                        fontFamily: 'Georgia, serif'
+                        fontFamily: 'var(--font-bitter), serif'
                       }}
                     >
                       {link.title}
@@ -151,11 +151,11 @@ export default function Home() {
 
           {/* Socials Section */}
           <div className="mb-8">
-            <h2 
+            <h2
               className="text-2xl font-bold text-center mb-4"
-              style={{ 
+              style={{
                 color: siteConfig.colors.text,
-                fontFamily: 'Georgia, serif'
+                fontFamily: 'var(--font-bitter), serif'
               }}
             >
               Socials
@@ -210,11 +210,11 @@ export default function Home() {
 
           {/* Former Bands Section */}
           <div className="mb-8">
-            <h2 
+            <h2
               className="text-2xl font-bold text-center mb-4"
-              style={{ 
+              style={{
                 color: siteConfig.colors.text,
-                fontFamily: 'Georgia, serif'
+                fontFamily: 'var(--font-bitter), serif'
               }}
             >
               Former Bands

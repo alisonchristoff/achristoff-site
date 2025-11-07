@@ -14,11 +14,11 @@ export default function About() {
             className="rounded-3xl shadow-lg p-8 sm:p-12"
             style={{ backgroundColor: siteConfig.colors.white }}
           >
-            <h1 
+            <h1
               className="text-4xl sm:text-5xl font-bold mb-6"
-              style={{ 
+              style={{
                 color: siteConfig.colors.text,
-                fontFamily: 'Georgia, serif'
+                fontFamily: 'var(--font-bitter), serif'
               }}
             >
               {siteConfig.about.title}
@@ -36,11 +36,11 @@ export default function About() {
                 className="mt-8 pt-8 border-t"
                 style={{ borderColor: siteConfig.colors.midBg }}
               >
-                <h2 
+                <h2
                   className="text-xl font-semibold mb-3"
-                  style={{ 
+                  style={{
                     color: siteConfig.colors.text,
-                    fontFamily: 'Georgia, serif'
+                    fontFamily: 'var(--font-bitter), serif'
                   }}
                 >
                   Get in Touch

@@ -18,12 +18,12 @@ export default function Navigation() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo/Name */}
-          <Link 
-            href="/" 
+          <Link
+            href="/"
             className="font-bold text-xl transition-colors"
-            style={{ 
+            style={{
               color: siteConfig.colors.text,
-              fontFamily: 'Georgia, serif'
+              fontFamily: 'var(--font-bitter), serif'
             }}
           >
             {siteConfig.name}

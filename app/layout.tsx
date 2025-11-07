@@ -1,6 +1,18 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { siteConfig } from "@/config/site";
+import { Bitter, Work_Sans } from "next/font/google";
+
+const bitter = Bitter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-bitter",
+});
+
+const workSans = Work_Sans({
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: {
@@ -22,10 +34,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body 
-        className="antialiased"
-        style={{ 
-          fontFamily: 'Arial, sans-serif',
+      <body
+        className={`${workSans.className} ${bitter.variable} antialiased`}
+        style={{
           color: siteConfig.colors.text
         }}
       >
