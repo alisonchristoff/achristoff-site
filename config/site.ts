@@ -90,19 +90,20 @@ export const siteConfig = {
     `,
   },
 
-  // Brand Colors
+  // Brand Colors - 60/40 Distribution (60% Neutrals, 40% Color Pops)
   colors: {
-    // Neutrals (60%)
+    // Neutrals (60% - Foundation)
     text: "#2D3748",
     lightBg: "#F9F8F6",
     midBg: "#E8EAED",
     darkGray: "#9CA3AF",
     white: "#FFFEFB",
-    
-    // Color Pops (40%)
-    sage: "#4B5441", // Primary brand color
-    slate: "#2D4F5F", // Buttons, CTAs
-    mauve: "#998087", // Soft accents
-    rust: "#5C2418", // Urgent accents, contrast
+
+    // Color Pops (40% - Strategic Richness)
+    // RICH, SATURATED, EARTHY COLORS - NOT MUTED
+    sage: "#4B5441", // Deep Sage Green - crusty earthy sage-brown (Primary brand color)
+    slate: "#2D4F5F", // Deep Slate Blue - saturated weathered blue-teal (Secondary)
+    mauve: "#A45D54", // Warm Mauve-Terracotta - rich rose-brown (Accent)
+    rust: "#8B3826", // Deep Burnt Rust - iron oxide earth-crust red (Bold accent)
   },
 }

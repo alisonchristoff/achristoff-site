@@ -1,16 +1,19 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { siteConfig } from "@/config/site";
-import { Bitter, Work_Sans } from "next/font/google";
+import { Space_Grotesk, Inter } from "next/font/google";
 
-const bitter = Bitter({
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
+  weight: ["500", "700"],
+  variable: "--font-space-grotesk",
   display: "swap",
-  variable: "--font-bitter",
 });
 
-const workSans = Work_Sans({
+const inter = Inter({
   subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-inter",
   display: "swap",
 });
 
@@ -35,9 +38,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${workSans.className} ${bitter.variable} antialiased`}
+        className={`${inter.variable} ${spaceGrotesk.variable} antialiased`}
         style={{
-          color: siteConfig.colors.text
+          color: siteConfig.colors.text,
+          fontFamily: 'var(--font-inter), sans-serif'
         }}
       >
         {children}

@@ -20,10 +20,10 @@ export default function Navigation() {
           {/* Logo/Name */}
           <Link
             href="/"
-            className="font-bold text-xl transition-colors"
+            className="font-bold text-xl transition-colors hover:opacity-80"
             style={{
               color: siteConfig.colors.text,
-              fontFamily: 'var(--font-bitter), serif'
+              fontFamily: 'var(--font-space-grotesk), sans-serif'
             }}
           >
             {siteConfig.name}
@@ -35,10 +35,17 @@ export default function Navigation() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="font-medium transition-colors hover:opacity-70"
-                style={{ color: siteConfig.colors.slate }}
+                className="font-medium relative group transition-colors"
+                style={{
+                  color: siteConfig.colors.slate,
+                  fontFamily: 'var(--font-space-grotesk), sans-serif'
+                }}
               >
                 {item.title}
+                <span
+                  className="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full"
+                  style={{ backgroundColor: siteConfig.colors.sage }}
+                ></span>
               </Link>
             ))}
           </div>
@@ -81,7 +88,10 @@ export default function Navigation() {
                   href={item.href}
                   onClick={() => setIsOpen(false)}
                   className="font-medium px-2 transition-colors hover:opacity-70"
-                  style={{ color: siteConfig.colors.slate }}
+                  style={{
+                    color: siteConfig.colors.slate,
+                    fontFamily: 'var(--font-space-grotesk), sans-serif'
+                  }}
                 >
                   {item.title}
                 </Link>
