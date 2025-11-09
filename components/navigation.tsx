@@ -8,11 +8,11 @@ export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <nav 
+    <nav
       className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b"
-      style={{ 
-        backgroundColor: `${siteConfig.colors.white}e6`,
-        borderColor: siteConfig.colors.midBg
+      style={{
+        backgroundColor: `${siteConfig.colors.midBg}f0`,
+        borderColor: siteConfig.colors.deepBg
       }}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -20,7 +20,7 @@ export default function Navigation() {
           {/* Logo/Name */}
           <Link
             href="/"
-            className="font-bold text-xl transition-colors hover:opacity-80"
+            className="font-bold text-lg transition-colors hover:opacity-80"
             style={{
               color: siteConfig.colors.text,
               fontFamily: 'var(--font-space-grotesk), sans-serif'
@@ -30,20 +30,20 @@ export default function Navigation() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex space-x-7">
             {siteConfig.nav.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="font-medium relative group transition-colors"
+                className="font-medium relative group transition-colors text-sm"
                 style={{
-                  color: siteConfig.colors.slate,
+                  color: siteConfig.colors.darkGray,
                   fontFamily: 'var(--font-space-grotesk), sans-serif'
                 }}
               >
                 {item.title}
                 <span
-                  className="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full"
+                  className="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-250 group-hover:w-full"
                   style={{ backgroundColor: siteConfig.colors.sage }}
                 ></span>
               </Link>
@@ -77,19 +77,19 @@ export default function Navigation() {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div 
+          <div
             className="md:hidden py-4 border-t"
-            style={{ borderColor: siteConfig.colors.midBg }}
+            style={{ borderColor: siteConfig.colors.deepBg }}
           >
-            <div className="flex flex-col space-y-4">
+            <div className="flex flex-col space-y-3">
               {siteConfig.nav.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
                   onClick={() => setIsOpen(false)}
-                  className="font-medium px-2 transition-colors hover:opacity-70"
+                  className="font-medium px-2 transition-colors hover:opacity-70 text-sm"
                   style={{
-                    color: siteConfig.colors.slate,
+                    color: siteConfig.colors.darkGray,
                     fontFamily: 'var(--font-space-grotesk), sans-serif'
                   }}
                 >

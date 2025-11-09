@@ -5,22 +5,23 @@
   --font-heading: var(--font-space-grotesk), sans-serif;
   --font-body: var(--font-inter), sans-serif;
 
-  /* Brand Colors - Neutrals */
-  --color-text: #2D3748;
-  --color-light-bg: #F9F8F6;
-  --color-mid-bg: #E8EAED;
-  --color-dark-gray: #9CA3AF;
-  --color-white: #FFFEFB;
+  /* Dark Theme - Moody Charcoal Colors */
+  --color-text: #e8e6e3;
+  --color-light-bg: #1a1f26;
+  --color-mid-bg: #252b33;
+  --color-dark-gray: #6b7280;
+  --color-white: #f5f3f0;
+  --color-deep-bg: #14181d;
 
-  /* Brand Colors - Color Pops */
-  --color-sage: #4B5441;
-  --color-slate: #2D4F5F;
-  --color-mauve: #A45D54;
-  --color-rust: #8B3826;
+  /* Color Pops - Vibrant against Dark */
+  --color-sage: #6b7f5e;
+  --color-slate: #4a6b7c;
+  --color-mauve: #c97b70;
+  --color-rust: #d4573b;
 
   /* Background */
-  --background: #F9F8F6;
-  --foreground: #2D3748;
+  --background: #1a1f26;
+  --foreground: #e8e6e3;
 }
 
 @theme inline {
@@ -32,19 +33,19 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-body);
-  letter-spacing: 0.01em;
-  line-height: 1.6;
+  letter-spacing: 0.005em;
+  line-height: 1.55;
 }
 
-/* Typography Utilities */
+/* Typography Utilities - Editorial Magazine Style */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
 }
 
-/* Subtle grain texture overlay */
+/* Grain texture overlay - slightly more visible on dark */
 body::before {
   content: '';
   position: fixed;
@@ -53,7 +54,7 @@ body::before {
   width: 100%;
   height: 100%;
   pointer-events: none;
-  opacity: 0.03;
+  opacity: 0.05;
   z-index: 9999;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }

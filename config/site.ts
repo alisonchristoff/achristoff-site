@@ -90,20 +90,21 @@ export const siteConfig = {
     `,
   },
 
-  // Brand Colors - 60/40 Distribution (60% Neutrals, 40% Color Pops)
+  // Brand Colors - Dark Moody Charcoal Theme
   colors: {
-    // Neutrals (60% - Foundation)
-    text: "#2D3748",
-    lightBg: "#F9F8F6",
-    midBg: "#E8EAED",
-    darkGray: "#9CA3AF",
-    white: "#FFFEFB",
+    // Dark Neutrals (60% - Foundation)
+    text: "#e8e6e3", // Off-white/cream for primary text
+    lightBg: "#1a1f26", // Dark charcoal with warm undertones (main background)
+    midBg: "#252b33", // Lighter charcoal for cards/elevated surfaces
+    darkGray: "#6b7280", // Muted gray for secondary text
+    white: "#f5f3f0", // Warm off-white for highlights
+    deepBg: "#14181d", // Even darker for depth/contrast
 
     // Color Pops (40% - Strategic Richness)
-    // RICH, SATURATED, EARTHY COLORS - NOT MUTED
-    sage: "#4B5441", // Deep Sage Green - crusty earthy sage-brown (Primary brand color)
-    slate: "#2D4F5F", // Deep Slate Blue - saturated weathered blue-teal (Secondary)
-    mauve: "#A45D54", // Warm Mauve-Terracotta - rich rose-brown (Accent)
-    rust: "#8B3826", // Deep Burnt Rust - iron oxide earth-crust red (Bold accent)
+    // VIBRANT EARTHY COLORS - Stand out against dark background
+    sage: "#6b7f5e", // Brighter sage green - earthy but visible on dark
+    slate: "#4a6b7c", // Lighter slate blue - saturated teal-blue
+    mauve: "#c97b70", // Bright mauve-terracotta - warm rose-coral
+    rust: "#d4573b", // Vibrant burnt rust - bright earth-crust red
   },
 }
