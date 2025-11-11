@@ -5,22 +5,22 @@
   --font-heading: var(--font-space-grotesk), sans-serif;
   --font-body: var(--font-inter), sans-serif;
 
-  /* Dark Theme - Moody Charcoal Colors */
+  /* ILLUMINATED MANUSCRIPT - Almost Black + Full Saturation */
   --color-text: #e8e6e3;
-  --color-light-bg: #1a1f26;
-  --color-mid-bg: #252b33;
-  --color-dark-gray: #6b7280;
+  --color-light-bg: #0f1419;
+  --color-mid-bg: #1a1f26;
+  --color-dark-gray: #9ca3af;
   --color-white: #f5f3f0;
-  --color-deep-bg: #14181d;
+  --color-deep-bg: #0a0d11;
 
-  /* Color Pops - Vibrant against Dark */
-  --color-sage: #6b7f5e;
-  --color-slate: #4a6b7c;
-  --color-mauve: #c97b70;
-  --color-rust: #d4573b;
+  /* Full Saturation Stained Glass Colors */
+  --color-sage: #4B5441;
+  --color-slate: #2D4F5F;
+  --color-mauve: #A45D54;
+  --color-rust: #8B3826;
 
   /* Background */
-  --background: #1a1f26;
+  --background: #0f1419;
   --foreground: #e8e6e3;
 }
 
@@ -37,7 +37,7 @@ body {
   line-height: 1.55;
 }
 
-/* Typography Utilities - Editorial Magazine Style */
+/* Typography - Editorial Magazine */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   font-weight: 700;
@@ -45,7 +45,7 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.025em;
 }
 
-/* Grain texture overlay - slightly more visible on dark */
+/* Enhanced grain texture on deep dark */
 body::before {
   content: '';
   position: fixed;
@@ -54,9 +54,148 @@ body::before {
   width: 100%;
   height: 100%;
   pointer-events: none;
-  opacity: 0.05;
+  opacity: 0.08;
   z-index: 9999;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* ============================================
+   KINETIC ANIMATIONS - Intentional Slowness
+   ============================================ */
+
+/* Breathing pulse - 8-10s cycle (unified rhythm) */
+@keyframes breathe {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.015); }
+}
+
+/* Morphing organic blob - ink in water */
+@keyframes morph {
+  0% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    transform: rotate(90deg) scale(1.05);
+  }
+  50% {
+    border-radius: 50% 30% 60% 40% / 30% 70% 40% 70%;
+    transform: rotate(180deg) scale(0.95);
+  }
+  75% {
+    border-radius: 70% 40% 30% 50% / 60% 40% 60% 30%;
+    transform: rotate(270deg) scale(1.02);
+  }
+  100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+/* Presence dot breathing */
+@keyframes presence-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.8); }
+}
+
+/* Particle breathing (synced with main rhythm) */
+@keyframes particle-drift {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  50% { transform: translateY(-10px) translateX(5px); }
+}
+
+/* Glow effect for stained glass colors */
+@keyframes glow {
+  0%, 100% { filter: drop-shadow(0 0 8px currentColor); }
+  50% { filter: drop-shadow(0 0 16px currentColor); }
+}
+
+/* Card tilt on hover */
+@keyframes tilt-in {
+  from { transform: perspective(1000px) rotateX(0deg) rotateY(0deg); }
+  to { transform: perspective(1000px) rotateX(2deg) rotateY(-2deg); }
+}
+
+/* Slow reveal opacity (intentional friction) */
+@keyframes slow-reveal {
+  from { opacity: 0.4; }
+  to { opacity: 1; }
+}
+
+/* Letter-spacing kinetic shift */
+@keyframes letter-breathe {
+  0%, 100% { letter-spacing: -0.02em; }
+  50% { letter-spacing: 0.01em; }
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+.breathe-slow {
+  animation: breathe 9s ease-in-out infinite;
+}
+
+.morph-blob {
+  animation: morph 18s ease-in-out infinite;
+}
+
+.presence-dot {
+  animation: presence-pulse 9s ease-in-out infinite;
+}
+
+.glow-effect {
+  animation: glow 9s ease-in-out infinite;
+}
+
+/* Glass morphism utility */
+.glass-morph {
+  background: rgba(26, 31, 38, 0.7);
+  backdrop-filter: blur(12px) saturate(150%);
+  -webkit-backdrop-filter: blur(12px) saturate(150%);
+  border: 1px solid rgba(232, 230, 227, 0.08);
+}
+
+/* Intentional friction - slow reveals (desktop only) */
+@media (hover: hover) and (pointer: fine) {
+  .slow-reveal-hover {
+    opacity: 0.4;
+    transition: opacity 2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .slow-reveal-hover:hover {
+    opacity: 1;
+  }
+}
+
+/* Mobile: immediate reveals (no friction on touch) */
+@media (hover: none) {
+  .slow-reveal-hover {
+    opacity: 1;
+  }
+}
+
+/* Particle container */
+.particle-field {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: var(--color-sage);
+  border-radius: 50%;
+  opacity: 0.15;
+  animation: particle-drift 8s ease-in-out infinite;
 }
 
 /* Reduced motion support */
@@ -67,5 +206,13 @@ body::before {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .breathe-slow,
+  .morph-blob,
+  .presence-dot,
+  .glow-effect,
+  .particle {
+    animation: none !important;
   }
 }

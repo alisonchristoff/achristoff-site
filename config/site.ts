@@ -90,21 +90,21 @@ export const siteConfig = {
     `,
   },
 
-  // Brand Colors - Dark Moody Charcoal Theme
+  // Brand Colors - ILLUMINATED MANUSCRIPT MODE
+  // Almost-black canvas + FULL SATURATION earth tones (medieval stained glass)
   colors: {
-    // Dark Neutrals (60% - Foundation)
-    text: "#e8e6e3", // Off-white/cream for primary text
-    lightBg: "#1a1f26", // Dark charcoal with warm undertones (main background)
-    midBg: "#252b33", // Lighter charcoal for cards/elevated surfaces
-    darkGray: "#6b7280", // Muted gray for secondary text
-    white: "#f5f3f0", // Warm off-white for highlights
-    deepBg: "#14181d", // Even darker for depth/contrast
+    // Deep Dark Canvas (Foundation)
+    text: "#e8e6e3", // Warm off-white (parchment)
+    lightBg: "#0f1419", // Almost black with warm undertones (main background)
+    midBg: "#1a1f26", // Elevated surfaces (cards)
+    darkGray: "#9ca3af", // Secondary text
+    white: "#f5f3f0", // Pure highlights
+    deepBg: "#0a0d11", // Deepest shadows
 
-    // Color Pops (40% - Strategic Richness)
-    // VIBRANT EARTHY COLORS - Stand out against dark background
-    sage: "#6b7f5e", // Brighter sage green - earthy but visible on dark
-    slate: "#4a6b7c", // Lighter slate blue - saturated teal-blue
-    mauve: "#c97b70", // Bright mauve-terracotta - warm rose-coral
-    rust: "#d4573b", // Vibrant burnt rust - bright earth-crust red
+    // FULL SATURATION Color Pops (Stained Glass Earth Tones)
+    sage: "#4B5441", // Deep Sage Green - FULL SATURATION
+    slate: "#2D4F5F", // Deep Slate Blue - FULL SATURATION
+    mauve: "#A45D54", // Warm Mauve-Terracotta - FULL SATURATION
+    rust: "#8B3826", // Deep Burnt Rust - FULL SATURATION
   },
 }

@@ -9,41 +9,44 @@ export default function Navigation() {
 
   return (
     <nav
-      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b"
-      style={{
-        backgroundColor: `${siteConfig.colors.midBg}f0`,
-        borderColor: siteConfig.colors.deepBg
-      }}
+      className="fixed top-0 left-0 right-0 z-50 glass-morph"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo/Name */}
+
+          {/* Logo/Name with Breathing Presence Dot */}
           <Link
             href="/"
-            className="font-bold text-lg transition-colors hover:opacity-80"
+            className="flex items-center space-x-2 font-bold text-lg transition-colors hover:opacity-80"
             style={{
               color: siteConfig.colors.text,
               fontFamily: 'var(--font-space-grotesk), sans-serif'
             }}
           >
-            {siteConfig.name}
+            {/* Breathing Presence Indicator - Synced 9s rhythm */}
+            <span
+              className="presence-dot w-2 h-2 rounded-full"
+              style={{ backgroundColor: siteConfig.colors.sage }}
+            />
+            <span>{siteConfig.name}</span>
           </Link>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation - Kinetic Letter Spacing on Hover */}
           <div className="hidden md:flex space-x-7">
             {siteConfig.nav.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="font-medium relative group transition-colors text-sm"
+                className="font-medium relative group transition-all duration-300 text-sm hover:tracking-wide"
                 style={{
                   color: siteConfig.colors.darkGray,
                   fontFamily: 'var(--font-space-grotesk), sans-serif'
                 }}
               >
                 {item.title}
+                {/* Glowing underline - Stained Glass Effect */}
                 <span
-                  className="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-250 group-hover:w-full"
+                  className="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-400 group-hover:w-full glow-effect"
                   style={{ backgroundColor: siteConfig.colors.sage }}
                 ></span>
               </Link>
@@ -75,7 +78,7 @@ export default function Navigation() {
           </button>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu - Glass Morph */}
         {isOpen && (
           <div
             className="md:hidden py-4 border-t"
