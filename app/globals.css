@@ -1,11 +1,10 @@
 @import "tailwindcss";
 
 :root {
-  /* Typography */
   --font-heading: var(--font-space-grotesk), sans-serif;
   --font-body: var(--font-inter), sans-serif;
 
-  /* ILLUMINATED MANUSCRIPT - Almost Black + Full Saturation */
+  /* Y2K CHAOS COLORS */
   --color-text: #e8e6e3;
   --color-light-bg: #0f1419;
   --color-mid-bg: #1a1f26;
@@ -13,13 +12,11 @@
   --color-white: #f5f3f0;
   --color-deep-bg: #0a0d11;
 
-  /* Full Saturation Stained Glass Colors */
   --color-sage: #4B5441;
   --color-slate: #2D4F5F;
   --color-mauve: #A45D54;
   --color-rust: #8B3826;
 
-  /* Background */
   --background: #0f1419;
   --foreground: #e8e6e3;
 }
@@ -33,19 +30,19 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-body);
-  letter-spacing: 0.005em;
-  line-height: 1.55;
+  overflow-x: hidden;
 }
 
-/* Typography - Editorial Magazine */
+/* Y2K Typography - NO SUBTLETY */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: -0.025em;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
 }
 
-/* Enhanced grain texture on deep dark */
+/* Heavy grain texture */
 body::before {
   content: '';
   position: fixed;
@@ -54,151 +51,180 @@ body::before {
   width: 100%;
   height: 100%;
   pointer-events: none;
-  opacity: 0.08;
+  opacity: 0.12;
   z-index: 9999;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
 /* ============================================
-   KINETIC ANIMATIONS - Intentional Slowness
+   Y2K GLITCH CHAOS ANIMATIONS
    ============================================ */
 
-/* Breathing pulse - 8-10s cycle (unified rhythm) */
-@keyframes breathe {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.7; transform: scale(1.015); }
+/* Glitch text effect */
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
 }
 
-/* Morphing organic blob - ink in water */
-@keyframes morph {
-  0% {
-    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-    transform: rotate(0deg) scale(1);
-  }
-  25% {
-    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
-    transform: rotate(90deg) scale(1.05);
-  }
-  50% {
-    border-radius: 50% 30% 60% 40% / 30% 70% 40% 70%;
-    transform: rotate(180deg) scale(0.95);
-  }
-  75% {
-    border-radius: 70% 40% 30% 50% / 60% 40% 60% 30%;
-    transform: rotate(270deg) scale(1.02);
-  }
-  100% {
-    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-    transform: rotate(360deg) scale(1);
-  }
+/* Scanline effect */
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
 }
 
-/* Presence dot breathing */
-@keyframes presence-pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.4; transform: scale(0.8); }
+/* RGB split glitch */
+@keyframes rgb-split {
+  0%, 100% { text-shadow: 0 0 0 #4B5441, 0 0 0 #8B3826; }
+  25% { text-shadow: -3px 0 #4B5441, 3px 0 #8B3826; }
+  50% { text-shadow: 3px 0 #4B5441, -3px 0 #8B3826; }
+  75% { text-shadow: -2px 0 #4B5441, 2px 0 #8B3826; }
 }
 
-/* Particle breathing (synced with main rhythm) */
-@keyframes particle-drift {
-  0%, 100% { transform: translateY(0) translateX(0); }
-  50% { transform: translateY(-10px) translateX(5px); }
+/* Diagonal stripe scroll */
+@keyframes diagonal-scroll {
+  0% { background-position: 0 0; }
+  100% { background-position: 50px 50px; }
 }
 
-/* Glow effect for stained glass colors */
-@keyframes glow {
-  0%, 100% { filter: drop-shadow(0 0 8px currentColor); }
-  50% { filter: drop-shadow(0 0 16px currentColor); }
+/* Rotate chaos */
+@keyframes rotate-chaos {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
-/* Card tilt on hover */
-@keyframes tilt-in {
-  from { transform: perspective(1000px) rotateX(0deg) rotateY(0deg); }
-  to { transform: perspective(1000px) rotateX(2deg) rotateY(-2deg); }
-}
-
-/* Slow reveal opacity (intentional friction) */
-@keyframes slow-reveal {
-  from { opacity: 0.4; }
-  to { opacity: 1; }
-}
-
-/* Letter-spacing kinetic shift */
-@keyframes letter-breathe {
-  0%, 100% { letter-spacing: -0.02em; }
-  50% { letter-spacing: 0.01em; }
+/* Pulse glow */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 10px currentColor; }
+  50% { box-shadow: 0 0 25px currentColor, 0 0 40px currentColor; }
 }
 
 /* ============================================
-   UTILITY CLASSES
+   Y2K UTILITY CLASSES
    ============================================ */
 
-.breathe-slow {
-  animation: breathe 9s ease-in-out infinite;
+.glitch-text {
+  animation: rgb-split 0.3s infinite;
 }
 
-.morph-blob {
-  animation: morph 18s ease-in-out infinite;
+.glitch-text-slow {
+  animation: rgb-split 2s infinite;
 }
 
-.presence-dot {
-  animation: presence-pulse 9s ease-in-out infinite;
+.scanline {
+  position: relative;
+  overflow: hidden;
 }
 
-.glow-effect {
-  animation: glow 9s ease-in-out infinite;
+.scanline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  animation: scanline 6s linear infinite;
+  z-index: 10;
 }
 
-/* Glass morphism utility */
-.glass-morph {
-  background: rgba(26, 31, 38, 0.7);
-  backdrop-filter: blur(12px) saturate(150%);
-  -webkit-backdrop-filter: blur(12px) saturate(150%);
-  border: 1px solid rgba(232, 230, 227, 0.08);
+/* Diagonal stripes background */
+.diagonal-stripes {
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(75, 84, 65, 0.1) 10px,
+    rgba(75, 84, 65, 0.1) 20px
+  );
+  animation: diagonal-scroll 20s linear infinite;
 }
 
-/* Intentional friction - slow reveals (desktop only) */
-@media (hover: hover) and (pointer: fine) {
-  .slow-reveal-hover {
-    opacity: 0.4;
-    transition: opacity 2s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .slow-reveal-hover:hover {
-    opacity: 1;
-  }
+/* Sharp chunky border */
+.chunky-border {
+  border: 6px solid;
+  border-radius: 0;
 }
 
-/* Mobile: immediate reveals (no friction on touch) */
-@media (hover: none) {
-  .slow-reveal-hover {
-    opacity: 1;
-  }
+/* Glitch container */
+.glitch-container {
+  position: relative;
 }
 
-/* Particle container */
-.particle-field {
-  position: fixed;
+.glitch-container::before,
+.glitch-container::after {
+  content: attr(data-text);
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  pointer-events: none;
-  z-index: 1;
-  overflow: hidden;
+  opacity: 0.8;
 }
 
-.particle {
-  position: absolute;
-  width: 2px;
-  height: 2px;
-  background: var(--color-sage);
-  border-radius: 50%;
-  opacity: 0.15;
-  animation: particle-drift 8s ease-in-out infinite;
+.glitch-container::before {
+  color: #4B5441;
+  animation: glitch 0.3s infinite;
+  clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
 }
 
-/* Reduced motion support */
+.glitch-container::after {
+  color: #8B3826;
+  animation: glitch 0.4s infinite reverse;
+  clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+}
+
+/* Grid overlay */
+.grid-overlay {
+  background-image:
+    linear-gradient(rgba(164, 93, 84, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(164, 93, 84, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Pixelated divider */
+.pixel-divider {
+  height: 4px;
+  background: linear-gradient(90deg,
+    #4B5441 0%, #4B5441 25%,
+    transparent 25%, transparent 50%,
+    #8B3826 50%, #8B3826 75%,
+    transparent 75%, transparent 100%
+  );
+  background-size: 40px 4px;
+  image-rendering: pixelated;
+}
+
+/* Rotate element */
+.rotate-chaos {
+  animation: rotate-chaos 20s linear infinite;
+}
+
+/* Pulse glow effect */
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Sharp geometric shapes */
+.geo-triangle {
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 80px solid currentColor;
+}
+
+.geo-square {
+  width: 60px;
+  height: 60px;
+  background: currentColor;
+  transform: rotate(45deg);
+}
+
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -206,13 +232,5 @@ body::before {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
-  }
-
-  .breathe-slow,
-  .morph-blob,
-  .presence-dot,
-  .glow-effect,
-  .particle {
-    animation: none !important;
   }
 }

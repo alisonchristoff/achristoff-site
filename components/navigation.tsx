@@ -9,94 +9,77 @@ export default function Navigation() {
 
   return (
     <nav
-      className="fixed top-0 left-0 right-0 z-50 glass-morph"
+      className="fixed top-0 left-0 right-0 z-50 border-b-4"
+      style={{
+        backgroundColor: siteConfig.colors.deepBg,
+        borderColor: siteConfig.colors.sage
+      }}
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="flex justify-between items-center h-14">
 
-          {/* Logo/Name with Breathing Presence Dot */}
+          {/* Logo - Y2K CHUNKY */}
           <Link
             href="/"
-            className="flex items-center space-x-2 font-bold text-lg transition-colors hover:opacity-80"
+            className="font-black text-base uppercase tracking-tight transition-all hover:tracking-widest"
             style={{
-              color: siteConfig.colors.text,
-              fontFamily: 'var(--font-space-grotesk), sans-serif'
+              color: siteConfig.colors.white,
+              fontFamily: 'var(--font-space-grotesk), sans-serif',
+              textShadow: `2px 2px 0 ${siteConfig.colors.sage}`
             }}
           >
-            {/* Breathing Presence Indicator - Synced 9s rhythm */}
-            <span
-              className="presence-dot w-2 h-2 rounded-full"
-              style={{ backgroundColor: siteConfig.colors.sage }}
-            />
-            <span>{siteConfig.name}</span>
+            {siteConfig.name.toUpperCase()}
           </Link>
 
-          {/* Desktop Navigation - Kinetic Letter Spacing on Hover */}
-          <div className="hidden md:flex space-x-7">
+          {/* Desktop Nav - CHUNKY UPPERCASE */}
+          <div className="hidden md:flex gap-6">
             {siteConfig.nav.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="font-medium relative group transition-all duration-300 text-sm hover:tracking-wide"
+                className="text-xs font-black uppercase relative group transition-all hover:tracking-wider"
                 style={{
                   color: siteConfig.colors.darkGray,
                   fontFamily: 'var(--font-space-grotesk), sans-serif'
                 }}
               >
                 {item.title}
-                {/* Glowing underline - Stained Glass Effect */}
+                {/* Chunky underline */}
                 <span
-                  className="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-400 group-hover:w-full glow-effect"
-                  style={{ backgroundColor: siteConfig.colors.sage }}
-                ></span>
+                  className="absolute -bottom-1 left-0 w-0 h-1 transition-all duration-200 group-hover:w-full"
+                  style={{ backgroundColor: siteConfig.colors.rust }}
+                />
               </Link>
             ))}
           </div>
 
-          {/* Mobile Hamburger */}
+          {/* Mobile hamburger */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-md transition-colors"
-            style={{ color: siteConfig.colors.text }}
+            className="md:hidden text-xl font-black"
+            style={{ color: siteConfig.colors.white }}
             aria-label="Toggle menu"
           >
-            <svg
-              className="h-6 w-6"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              {isOpen ? (
-                <path d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path d="M4 6h16M4 12h16M4 18h16" />
-              )}
-            </svg>
+            {isOpen ? '✕' : '≡'}
           </button>
         </div>
 
-        {/* Mobile Menu - Glass Morph */}
+        {/* Mobile menu */}
         {isOpen && (
-          <div
-            className="md:hidden py-4 border-t"
-            style={{ borderColor: siteConfig.colors.deepBg }}
-          >
-            <div className="flex flex-col space-y-3">
+          <div className="md:hidden py-4 border-t-2" style={{ borderColor: siteConfig.colors.mauve }}>
+            <div className="flex flex-col gap-3">
               {siteConfig.nav.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
                   onClick={() => setIsOpen(false)}
-                  className="font-medium px-2 transition-colors hover:opacity-70 text-sm"
+                  className="text-sm font-black uppercase px-2"
                   style={{
-                    color: siteConfig.colors.darkGray,
+                    color: siteConfig.colors.white,
                     fontFamily: 'var(--font-space-grotesk), sans-serif'
                   }}
                 >
-                  {item.title}
+                  → {item.title}
                 </Link>
               ))}
             </div>
