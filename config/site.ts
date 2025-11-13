@@ -45,12 +45,6 @@ export const siteConfig = {
   // Former Bands
   formerBands: [
     {
-      name: "Callejera",
-      role: "Bass",
-      image: "/callejera.png", // Optional: add band images to /public/
-      url: "https://open.spotify.com/embed/artist/5fZC0N5JLxe5cO9WY3mFwJ", // Add Spotify/Bandcamp link if you want
-    },
-    {
       name: "Aerial Headwound 273",
       role: "Vocals",
       image: "/aerial.png",
@@ -61,6 +55,12 @@ export const siteConfig = {
       role: "Vocals",
       image: "/pigmale.png",
       url: "https://open.spotify.com/artist/1hhzqRknlZJlItf1EH0oYR",
+    },
+    {
+      name: "Callejera",
+      role: "Bass",
+      image: "/callejera.png", // Optional: add band images to /public/
+      url: "https://open.spotify.com/embed/artist/5fZC0N5JLxe5cO9WY3mFwJ", // Add Spotify/Bandcamp link if you want
     },
   ],
 
