@@ -38,7 +38,7 @@ export default function Home() {
             {/* GIGANTIC OVERLAPPING HERO TEXT */}
             <div className="relative mb-8">
               <motion.h1
-                className="text-[80px] sm:text-[120px] lg:text-[160px] font-black leading-none glitch-text-slow"
+                className="text-[60px] sm:text-[120px] lg:text-[160px] font-black leading-none glitch-text-slow pr-28 sm:pr-0"
                 style={{
                   fontFamily: 'var(--font-space-grotesk), sans-serif',
                   color: siteConfig.colors.sage,
@@ -54,13 +54,13 @@ export default function Home() {
 
               {/* Small profile tucked in corner with chunky border */}
               <motion.div
-                className="absolute -top-4 right-0 sm:right-10 chunky-border"
+                className="absolute -top-2 right-0 sm:-top-4 sm:right-10 chunky-border"
                 style={{ borderColor: siteConfig.colors.slate }}
                 initial={{ opacity: 0, rotate: -10 }}
                 animate={{ opacity: 1, rotate: 0 }}
                 transition={{ duration: 0.8 }}
               >
-                <div className="w-24 h-24 sm:w-32 sm:h-32 relative">
+                <div className="w-20 h-20 sm:w-32 sm:h-32 relative">
                   <Image
                     src={siteConfig.profile.image}
                     alt={siteConfig.profile.name}
