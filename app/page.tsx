@@ -424,8 +424,11 @@ export default function Home() {
                   }}
                   whileHover={{ scale: 1.08, rotate: 0 }}
                 >
-                  <div
-                    className="relative"
+                  <motion.a
+                    href={band.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block relative"
                     style={{
                       transform: `rotate(${[-2, 1, -1][index % 3]}deg)`,
                       transition: 'transform 0.3s ease'
@@ -479,7 +482,7 @@ export default function Home() {
                         opacity: 0.7
                       }}
                     />
-                  </div>
+                  </motion.a>
                 </motion.div>
               ))}
             </div>
