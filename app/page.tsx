@@ -38,7 +38,7 @@ export default function Home() {
             {/* GIGANTIC OVERLAPPING HERO TEXT */}
             <div className="relative mb-8">
               <motion.h1
-                className="text-[60px] sm:text-[120px] lg:text-[160px] font-black leading-none glitch-text-slow pr-28 sm:pr-0"
+                className="text-[80px] sm:text-[120px] lg:text-[160px] font-black leading-none glitch-text-slow"
                 style={{
                   fontFamily: 'var(--font-space-grotesk), sans-serif',
                   color: siteConfig.colors.sage,
@@ -52,15 +52,15 @@ export default function Home() {
                 UNKNOWN
               </motion.h1>
 
-              {/* Small profile tucked in corner with chunky border */}
+              {/* Profile picture - desktop: right of UNKNOWN, mobile: hidden (shown below with name box) */}
               <motion.div
-                className="absolute -top-2 right-0 sm:-top-4 sm:right-10 chunky-border"
+                className="hidden sm:block absolute -top-4 right-10 chunky-border"
                 style={{ borderColor: siteConfig.colors.slate }}
                 initial={{ opacity: 0, rotate: -10 }}
                 animate={{ opacity: 1, rotate: 0 }}
                 transition={{ duration: 0.8 }}
               >
-                <div className="w-20 h-20 sm:w-32 sm:h-32 relative">
+                <div className="w-32 h-32 relative">
                   <Image
                     src={siteConfig.profile.image}
                     alt={siteConfig.profile.name}
@@ -73,23 +73,46 @@ export default function Home() {
               </motion.div>
             </div>
 
-            {/* Rotated name section */}
-            <motion.div
-              className="mb-6 inline-block"
-              style={{ transform: 'rotate(-2deg)' }}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-            >
-              <div className="chunky-border p-4" style={{ borderColor: siteConfig.colors.mauve, backgroundColor: siteConfig.colors.deepBg }}>
-                <p className="text-2xl sm:text-4xl font-black mb-1" style={{ color: siteConfig.colors.white }}>
-                  {siteConfig.profile.name.toUpperCase()}
-                </p>
-                <p className="text-xs sm:text-sm font-bold tracking-widest" style={{ color: siteConfig.colors.sage }}>
-                  {siteConfig.profile.bio.toUpperCase()}
-                </p>
-              </div>
-            </motion.div>
+            {/* Name box + Profile picture side by side (mobile only) */}
+            <div className="flex flex-row gap-4 items-start mb-6">
+              {/* Rotated name section */}
+              <motion.div
+                className="inline-block"
+                style={{ transform: 'rotate(-2deg)' }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+              >
+                <div className="chunky-border p-4" style={{ borderColor: siteConfig.colors.mauve, backgroundColor: siteConfig.colors.deepBg }}>
+                  <p className="text-2xl sm:text-4xl font-black mb-1" style={{ color: siteConfig.colors.white }}>
+                    {siteConfig.profile.name.toUpperCase()}
+                  </p>
+                  <p className="text-xs sm:text-sm font-bold tracking-widest" style={{ color: siteConfig.colors.sage }}>
+                    {siteConfig.profile.bio.toUpperCase()}
+                  </p>
+                </div>
+              </motion.div>
+
+              {/* Profile picture - mobile only: next to name box */}
+              <motion.div
+                className="sm:hidden chunky-border"
+                style={{ borderColor: siteConfig.colors.slate }}
+                initial={{ opacity: 0, rotate: -10 }}
+                animate={{ opacity: 1, rotate: 0 }}
+                transition={{ duration: 0.8 }}
+              >
+                <div className="w-24 h-24 relative">
+                  <Image
+                    src={siteConfig.profile.image}
+                    alt={siteConfig.profile.name}
+                    fill
+                    className="object-cover"
+                    style={{ imageRendering: 'crisp-edges' }}
+                    priority
+                  />
+                </div>
+              </motion.div>
+            </div>
 
             {/* Tiny location text */}
             <p className="text-[9px] sm:text-[11px] uppercase tracking-wider opacity-60 ml-2">
