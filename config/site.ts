@@ -107,4 +107,4 @@ export const siteConfig = {
     mauve: "#A45D54", // Warm Mauve-Terracotta - FULL SATURATION
     rust: "#8B3826", // Deep Burnt Rust - FULL SATURATION
   },
-}
+} 
