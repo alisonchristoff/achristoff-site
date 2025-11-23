@@ -60,7 +60,7 @@ export const siteConfig = {
       name: "Callejera",
       role: "Bass",
       image: "/callejera.png", // Optional: add band images to /public/
-      url: "https://open.spotify.com/embed/artist/5fZC0N5JLxe5cO9WY3mFwJ", // Add Spotify/Bandcamp link if you want
+      url: "https://open.spotify.com/artist/5fZC0N5JLxe5cO9WY3mFwJ", // Add Spotify/Bandcamp link if you want
     },
   ],
 
