@@ -11,11 +11,6 @@ const Icons = {
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
     </svg>
   ),
-  patreon: () => (
-    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-      <path d="M15.386.524c-4.764 0-8.64 3.876-8.64 8.64 0 4.75 3.876 8.613 8.64 8.613 4.75 0 8.614-3.864 8.614-8.613C24 4.4 20.136.524 15.386.524M.003 23.537h4.22V.524H.003"/>
-    </svg>
-  ),
 }
 
 export default function Home() {
@@ -208,26 +203,6 @@ export default function Home() {
                     <Icons.mail />
                     EMAIL
                   </motion.a>
-                  <motion.a
-                    href={siteConfig.links[0]?.url || "#"}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-6 py-3 transition-transform"
-                    style={{
-                      border: `3px solid ${siteConfig.colors.rust}`,
-                      backgroundColor: siteConfig.colors.rust,
-                      color: siteConfig.colors.white,
-                      fontFamily: 'var(--font-space-grotesk), sans-serif',
-                      fontWeight: 700,
-                      fontSize: '0.875rem',
-                      letterSpacing: '0.05em'
-                    }}
-                    whileHover={{ scale: 1.08, rotate: 2 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <Icons.patreon />
-                    PATREON
-                  </motion.a>
                 </motion.div>
               </div>
 
@@ -249,7 +224,7 @@ export default function Home() {
           transition={{ duration: 1.2, ease: "easeInOut" }}
         />
 
-        {/* PATREON SECTION - Clear value prop with artistic flair */}
+        {/* UNDER CONSTRUCTION NOTICE */}
         <motion.section
           className="py-8 md:py-12 px-4"
           initial={{ opacity: 0, y: 40 }}
@@ -258,110 +233,46 @@ export default function Home() {
           transition={{ duration: 1.0, ease: [0.43, 0.13, 0.62, 1.45] }}
         >
           <div className="max-w-4xl mx-auto">
-
-            {/* Decorative accent - animated */}
-            <motion.div
-              className="absolute right-0 w-48 h-48 border-r-3 border-b-3 opacity-20"
+            <div
+              className="p-8 md:p-12 relative overflow-hidden pulse-glow"
               style={{
-                borderColor: siteConfig.colors.mauve,
-                transform: 'rotate(3deg)'
+                border: `4px solid ${siteConfig.colors.rust}`,
+                backgroundColor: siteConfig.colors.deepBg,
+                transform: 'rotate(-1deg)',
+                color: siteConfig.colors.rust
               }}
-              initial={{ opacity: 0, x: 50, rotate: 10 }}
-              whileInView={{ opacity: 0.2, x: 0, rotate: 3 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1.5, delay: 0.3, ease: [0.68, -0.55, 0.265, 1.55] }}
-              aria-hidden="true"
-            />
-
-            <motion.a
-              href={siteConfig.links[0]?.url || "#"}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block relative"
-              initial={{ opacity: 0, rotate: -3 }}
-              whileInView={{ opacity: 1, rotate: -1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              whileHover={{ scale: 1.03, rotate: 0 }}
             >
-              <div
-                className="p-8 md:p-12 relative overflow-hidden"
+              {/* Main Message with RGB Split Glitch */}
+              <h2
+                className="text-4xl md:text-6xl lg:text-7xl font-black text-center glitch-text-slow mb-0"
                 style={{
-                  border: `4px solid ${siteConfig.colors.rust}`,
-                  backgroundColor: siteConfig.colors.deepBg,
-                  transform: 'rotate(-1deg)'
+                  color: siteConfig.colors.white,
+                  fontFamily: 'var(--font-space-grotesk), sans-serif',
+                  lineHeight: 1.1,
+                  letterSpacing: '0.05em'
                 }}
               >
-                <div className="grid md:grid-cols-[auto,1fr] gap-8 items-center relative z-10">
+                SITE UNDER CONSTRUCTION
+              </h2>
 
-                  {/* Image */}
-                  {siteConfig.links[0]?.image && (
-                    <div
-                      className="w-32 h-32 md:w-40 md:h-40 mx-auto md:mx-0 relative"
-                      style={{
-                        border: `3px solid ${siteConfig.colors.sage}`,
-                        transform: 'rotate(2deg)'
-                      }}
-                    >
-                      <Image
-                        src={siteConfig.links[0].image}
-                        alt={siteConfig.links[0].title}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                  )}
-
-                  {/* Content */}
-                  <div>
-                    <h3
-                      className="text-3xl md:text-5xl font-black mb-4"
-                      style={{
-                        color: siteConfig.colors.white,
-                        fontFamily: 'var(--font-space-grotesk), sans-serif',
-                        lineHeight: 1.1
-                      }}
-                    >
-                      {siteConfig.links[0]?.title}
-                    </h3>
-
-                    {siteConfig.links[0]?.description && (
-                      <p
-                        className="text-base md:text-lg mb-6 max-w-xl"
-                        style={{
-                          color: siteConfig.colors.darkGray,
-                          fontFamily: 'var(--font-inter), sans-serif',
-                          lineHeight: 1.6
-                        }}
-                      >
-                        {siteConfig.links[0].description}
-                      </p>
-                    )}
-
-                    <div
-                      className="inline-flex items-center gap-2 text-xl md:text-2xl font-black"
-                      style={{
-                        color: siteConfig.colors.rust,
-                        fontFamily: 'var(--font-space-grotesk), sans-serif'
-                      }}
-                    >
-                      SUBSCRIBE →
-                    </div>
-                  </div>
-
-                </div>
-
-                {/* Accent bar */}
-                <div
-                  className="absolute bottom-0 left-0 right-0 h-2"
-                  style={{
-                    background: `linear-gradient(90deg, ${siteConfig.colors.sage}, ${siteConfig.colors.rust})`,
-                    opacity: 0.6
-                  }}
-                />
-              </div>
-            </motion.a>
-
+              {/* Animated Gradient Accent Bar */}
+              <motion.div
+                className="absolute bottom-0 left-0 right-0 h-2"
+                style={{
+                  background: `linear-gradient(90deg, ${siteConfig.colors.sage}, ${siteConfig.colors.rust}, ${siteConfig.colors.mauve})`,
+                  backgroundSize: '200% 100%',
+                  opacity: 0.6
+                }}
+                animate={{
+                  backgroundPosition: ['0% 0%', '200% 0%']
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "linear"
+                }}
+              />
+            </div>
           </div>
         </motion.section>
 

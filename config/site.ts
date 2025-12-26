@@ -12,17 +12,6 @@ export const siteConfig = {
     email: "alisonchristoff@gmail.com",
   },
 
-  // Main Links (linktree style)
-  links: [
-    {
-      title: "Alison Christoff | Patreon Podcast",
-      description: "A subscription-based community focused on grounding within the digital age",
-      url: "https://www.patreon.com/alisonchristoff", // Update with your actual Patreon URL
-      icon: "patreon",
-      image: "/patreon-thumb.png", // Optional: add thumbnail image
-    },
-  ],
-
   // Social Links
   social: [
     {
