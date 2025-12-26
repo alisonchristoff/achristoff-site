@@ -224,7 +224,7 @@ export default function Home() {
           transition={{ duration: 1.2, ease: "easeInOut" }}
         />
 
-        {/* UNDER CONSTRUCTION NOTICE */}
+        {/* UNDER CONSTRUCTION NOTICE - Laura Nyro reincarnated: organic chaos meets intentional beauty */}
         <motion.section
           className="py-8 md:py-12 px-4"
           initial={{ opacity: 0, y: 40 }}
@@ -233,46 +233,276 @@ export default function Home() {
           transition={{ duration: 1.0, ease: [0.43, 0.13, 0.62, 1.45] }}
         >
           <div className="max-w-4xl mx-auto">
-            <div
-              className="p-8 md:p-12 relative overflow-hidden pulse-glow"
+            <motion.div
+              className="p-8 md:p-12 relative overflow-hidden diagonal-stripes"
               style={{
                 border: `4px solid ${siteConfig.colors.rust}`,
                 backgroundColor: siteConfig.colors.deepBg,
                 transform: 'rotate(-1deg)',
                 color: siteConfig.colors.rust
               }}
+              animate={{
+                boxShadow: [
+                  `0 0 20px ${siteConfig.colors.rust}33`,
+                  `0 0 35px ${siteConfig.colors.rust}28`,
+                  `0 0 25px ${siteConfig.colors.rust}30`,
+                  `0 0 40px ${siteConfig.colors.rust}25`,
+                  `0 0 20px ${siteConfig.colors.rust}33`
+                ]
+              }}
+              transition={{
+                duration: 7,
+                repeat: Infinity,
+                ease: "easeInOut",
+                times: [0, 0.3, 0.5, 0.8, 1]
+              }}
             >
+              {/* LAYER 2: Stained Glass Geometric Overlays - Visible drift & color bleed */}
+              {/* Rotated square - mauve glow, slow exhale drift */}
+              <motion.div
+                className="absolute left-1/4 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+                style={{
+                  width: '140px',
+                  height: '140px',
+                  backgroundColor: siteConfig.colors.mauve,
+                  opacity: 0.18,
+                  transform: 'rotate(12deg)',
+                  filter: 'blur(12px)',
+                  zIndex: 0
+                }}
+                initial={{ opacity: 0, rotate: 0, scale: 0.5 }}
+                animate={{
+                  opacity: [0.18, 0.22, 0.16, 0.18],
+                  rotate: [12, 16, 9, 12],
+                  scale: [1, 1.08, 0.96, 1],
+                  x: [0, -8, 5, 0],
+                  y: [0, 12, -6, 0]
+                }}
+                transition={{
+                  duration: 11,
+                  delay: 0.2,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  times: [0, 0.4, 0.7, 1]
+                }}
+                aria-hidden="true"
+              />
+
+              {/* Overlapping circle - slate glow, quick inhale drift */}
+              <motion.div
+                className="absolute right-1/4 top-1/3 pointer-events-none"
+                style={{
+                  width: '120px',
+                  height: '120px',
+                  borderRadius: '50%',
+                  backgroundColor: siteConfig.colors.slate,
+                  opacity: 0.16,
+                  filter: 'blur(10px)',
+                  zIndex: 1
+                }}
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{
+                  opacity: [0.16, 0.14, 0.20, 0.16],
+                  scale: [1, 1.10, 0.93, 1],
+                  x: [0, 8, -5, 0],
+                  y: [0, -7, 10, 0]
+                }}
+                transition={{
+                  duration: 6,
+                  delay: 0.4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  times: [0, 0.25, 0.6, 1]
+                }}
+                aria-hidden="true"
+              />
+
+              {/* Triangle accent - sage glow, asymmetric breath */}
+              <motion.div
+                className="absolute left-1/3 bottom-1/4 pointer-events-none"
+                style={{
+                  width: 0,
+                  height: 0,
+                  borderLeft: '50px solid transparent',
+                  borderRight: '50px solid transparent',
+                  borderBottom: `70px solid ${siteConfig.colors.sage}`,
+                  opacity: 0.17,
+                  transform: 'rotate(-15deg)',
+                  filter: 'blur(8px)',
+                  zIndex: 2
+                }}
+                initial={{ opacity: 0, rotate: -45, scale: 0 }}
+                animate={{
+                  opacity: [0.17, 0.21, 0.14, 0.18, 0.17],
+                  rotate: [-15, -11, -19, -13, -15],
+                  scale: [1, 1.06, 1.02, 0.96, 1],
+                  x: [0, 6, -8, 3, 0],
+                  y: [0, -5, 7, -3, 0]
+                }}
+                transition={{
+                  duration: 9,
+                  delay: 0.7,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  times: [0, 0.3, 0.5, 0.8, 1]
+                }}
+                aria-hidden="true"
+              />
+
+              {/* LAYER 3: Main Content */}
               {/* Main Message with RGB Split Glitch */}
               <h2
-                className="text-4xl md:text-6xl lg:text-7xl font-black text-center glitch-text-slow mb-0"
+                className="text-4xl md:text-6xl lg:text-7xl font-black text-center glitch-text-slow mb-4"
                 style={{
                   color: siteConfig.colors.white,
                   fontFamily: 'var(--font-space-grotesk), sans-serif',
                   lineHeight: 1.1,
-                  letterSpacing: '0.05em'
+                  letterSpacing: '0.05em',
+                  position: 'relative',
+                  zIndex: 10
                 }}
               >
                 SITE UNDER CONSTRUCTION
               </h2>
 
-              {/* Animated Gradient Accent Bar */}
-              <motion.div
-                className="absolute bottom-0 left-0 right-0 h-2"
+              {/* Subtitle - new contemplation coming soon */}
+              <motion.p
+                className="text-sm md:text-base lg:text-lg font-bold text-center uppercase tracking-widest"
                 style={{
-                  background: `linear-gradient(90deg, ${siteConfig.colors.sage}, ${siteConfig.colors.rust}, ${siteConfig.colors.mauve})`,
-                  backgroundSize: '200% 100%',
-                  opacity: 0.6
+                  color: siteConfig.colors.sage,
+                  fontFamily: 'var(--font-space-grotesk), sans-serif',
+                  opacity: 0.8,
+                  letterSpacing: '0.15em',
+                  position: 'relative',
+                  zIndex: 10
                 }}
-                animate={{
-                  backgroundPosition: ['0% 0%', '200% 0%']
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 0.8, y: 0 }}
+                transition={{ duration: 1.0, delay: 1.0, ease: [0.43, 0.13, 0.62, 1.45] }}
+              >
+                new contemplation coming soon
+              </motion.p>
+
+              {/* LAYER 4: Grid + Scanline Overlay (Fun Element) */}
+              <div
+                className="absolute inset-0 grid-overlay scanline pointer-events-none"
+                style={{
+                  opacity: 0.15,
+                  mixBlendMode: 'overlay',
+                  zIndex: 5
                 }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "linear"
-                }}
+                aria-hidden="true"
               />
-            </div>
+
+              {/* LAYER 4b: Film Grain / Paper Texture - Adds warmth & tactility */}
+              <div
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+                  opacity: 0.06,
+                  mixBlendMode: 'overlay',
+                  zIndex: 6
+                }}
+                aria-hidden="true"
+              />
+
+              {/* LAYER 5: Four Asymmetric Corner Brackets */}
+              {/* Top-left corner bracket - dominant sage */}
+              <motion.div
+                className="absolute top-0 left-0 w-20 h-20 md:w-28 md:h-28 border-l-3 border-t-3"
+                style={{
+                  borderColor: siteConfig.colors.sage,
+                  opacity: 0.5
+                }}
+                initial={{ opacity: 0, scale: 0.5, rotate: -15 }}
+                animate={{ opacity: 0.5, scale: 1, rotate: -3 }}
+                transition={{ duration: 1.2, delay: 0.3, ease: [0.68, -0.55, 0.265, 1.55] }}
+                aria-hidden="true"
+              />
+
+              {/* Top-right corner bracket - smaller mauve */}
+              <motion.div
+                className="absolute top-0 right-0 w-16 h-16 md:w-20 md:h-20 border-r-3 border-t-3"
+                style={{
+                  borderColor: siteConfig.colors.mauve,
+                  opacity: 0.4
+                }}
+                initial={{ opacity: 0, scale: 0.5, rotate: 15 }}
+                animate={{ opacity: 0.4, scale: 1, rotate: 2 }}
+                transition={{ duration: 1.0, delay: 0.5, ease: [0.68, -0.55, 0.265, 1.55] }}
+                aria-hidden="true"
+              />
+
+              {/* Bottom-left corner bracket - asymmetric slate */}
+              <motion.div
+                className="absolute bottom-0 left-0 w-24 h-24 md:w-32 md:h-32 border-l-3 border-b-3"
+                style={{
+                  borderColor: siteConfig.colors.slate,
+                  opacity: 0.45
+                }}
+                initial={{ opacity: 0, scale: 0.5, rotate: 15 }}
+                animate={{ opacity: 0.45, scale: 1, rotate: 4 }}
+                transition={{ duration: 1.3, delay: 0.4, ease: [0.43, 0.13, 0.62, 1.45] }}
+                aria-hidden="true"
+              />
+
+              {/* Bottom-right corner bracket - completes frame rust */}
+              <motion.div
+                className="absolute bottom-0 right-0 w-18 h-18 md:w-24 md:h-24 border-r-3 border-b-3"
+                style={{
+                  borderColor: siteConfig.colors.rust,
+                  opacity: 0.35
+                }}
+                initial={{ opacity: 0, scale: 0.5, rotate: -15 }}
+                animate={{ opacity: 0.35, scale: 1, rotate: -2 }}
+                transition={{ duration: 1.1, delay: 0.6, ease: [0.68, -0.55, 0.265, 1.55] }}
+                aria-hidden="true"
+              />
+
+              {/* LAYER 6: Structural hand-drawn elements */}
+              {/* Loose sketchy line - parallel to left border */}
+              <motion.svg
+                className="absolute left-6 top-16 md:left-8 md:top-20 pointer-events-none"
+                width="3"
+                height="200"
+                viewBox="0 0 3 200"
+                style={{ opacity: 0.2, zIndex: 4 }}
+                initial={{ opacity: 0, scaleY: 0 }}
+                animate={{ opacity: 0.2, scaleY: 1 }}
+                transition={{ duration: 1.3, delay: 0.9, ease: [0.68, -0.55, 0.265, 1.55] }}
+                aria-hidden="true"
+              >
+                <path
+                  d="M 1.5,10 Q 2,50 1.5,90 T 1.5,170 Q 2,185 1.5,190"
+                  fill="none"
+                  stroke={siteConfig.colors.slate}
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                />
+              </motion.svg>
+
+              {/* Loose sketchy line - parallel to right border */}
+              <motion.svg
+                className="absolute right-6 top-20 md:right-8 md:top-24 pointer-events-none"
+                width="3"
+                height="180"
+                viewBox="0 0 3 180"
+                style={{ opacity: 0.22, zIndex: 4 }}
+                initial={{ opacity: 0, scaleY: 0 }}
+                animate={{ opacity: 0.22, scaleY: 1 }}
+                transition={{ duration: 1.4, delay: 1.0, ease: [0.68, -0.55, 0.265, 1.55] }}
+                aria-hidden="true"
+              >
+                <path
+                  d="M 1.5,15 Q 1,55 1.5,95 T 1.5,155 Q 1,165 1.5,170"
+                  fill="none"
+                  stroke={siteConfig.colors.mauve}
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                />
+              </motion.svg>
+
+            </motion.div>
           </div>
         </motion.section>
 
