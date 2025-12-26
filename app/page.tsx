@@ -380,7 +380,7 @@ export default function Home() {
                 animate={{ opacity: 0.8, y: 0 }}
                 transition={{ duration: 1.0, delay: 1.0, ease: [0.43, 0.13, 0.62, 1.45] }}
               >
-                new contemplation coming soon
+                new work coming soon
               </motion.p>
 
               {/* LAYER 4: Grid + Scanline Overlay (Fun Element) */}
