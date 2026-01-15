@@ -27,12 +27,24 @@ const Icons = {
 
 export default function Home() {
   const [videos, setVideos] = useState([])
+  const [apiError, setApiError] = useState<string | null>(null)
+  const [debugInfo, setDebugInfo] = useState<any>(null)
 
   useEffect(() => {
     fetch('/api/youtube')
       .then(res => res.json())
-      .then(data => setVideos(data.videos || []))
-      .catch(err => console.error('Failed to fetch videos:', err))
+      .then(data => {
+        setVideos(data.videos || [])
+        if (data.error) {
+          setApiError(data.error)
+          setDebugInfo(data.debug)
+          console.error('YouTube API Error:', data.error, data.debug)
+        }
+      })
+      .catch(err => {
+        console.error('Failed to fetch videos:', err)
+        setApiError(err.message)
+      })
   }, [])
 
   return (
@@ -288,7 +300,7 @@ export default function Home() {
         />
 
         {/* YOUTUBE VIDEO SHOWCASE - Latest long-form content */}
-        <YouTubeSection videos={videos} />
+        <YouTubeSection videos={videos} apiError={apiError} debugInfo={debugInfo} />
 
         {/* Visual divider - animated */}
         <motion.div

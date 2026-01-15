@@ -7,9 +7,11 @@ import { motion } from "framer-motion"
 
 interface YouTubeSectionProps {
   videos: any[]
+  apiError?: string | null
+  debugInfo?: any
 }
 
-export default function YouTubeSection({ videos }: YouTubeSectionProps) {
+export default function YouTubeSection({ videos, apiError, debugInfo }: YouTubeSectionProps) {
   const scrollContainerRef = useRef<HTMLDivElement>(null)
 
   const scroll = (direction: 'left' | 'right') => {
@@ -300,6 +302,24 @@ export default function YouTubeSection({ videos }: YouTubeSectionProps) {
           /* Fallback if no videos */
           <div className="text-center py-12" style={{ color: siteConfig.colors.darkGray }}>
             <p className="text-lg">Videos coming soon...</p>
+            {apiError && (
+              <div className="mt-4 p-4 rounded border"
+                   style={{
+                     backgroundColor: siteConfig.colors.midBg,
+                     borderColor: siteConfig.colors.rust,
+                     color: siteConfig.colors.text
+                   }}>
+                <p className="text-sm font-bold mb-2" style={{ color: siteConfig.colors.rust }}>
+                  Debug Info:
+                </p>
+                <p className="text-xs mb-2">{apiError}</p>
+                {debugInfo && (
+                  <pre className="text-xs text-left overflow-auto">
+                    {JSON.stringify(debugInfo, null, 2)}
+                  </pre>
+                )}
+              </div>
+            )}
           </div>
         )}
       </div>
