@@ -15,7 +15,7 @@ export default function About() {
             style={{ backgroundColor: siteConfig.colors.white }}
           >
             <h1
-              className="text-4xl sm:text-5xl font-bold mb-6"
+              className="text-2xl sm:text-3xl font-bold mb-6"
               style={{
                 color: siteConfig.colors.deepBg,
                 fontFamily: 'var(--font-bitter), serif'
@@ -25,7 +25,7 @@ export default function About() {
             </h1>
 
             <div
-              className="text-lg leading-relaxed whitespace-pre-line"
+              className="text-base leading-relaxed whitespace-pre-line"
               style={{ color: siteConfig.colors.deepBg }}
             >
               {siteConfig.about.content}
