@@ -150,6 +150,7 @@ export default function YouTubeSection({ videos, apiError, debugInfo }: YouTubeS
               <div
                 ref={scrollContainerRef}
                 className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory px-12 hide-scrollbar"
+                style={{ touchAction: 'pan-x' }}
               >
 
                 {videos.slice(0, 5).map((video: any, idx: number) => {
