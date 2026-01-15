@@ -116,7 +116,7 @@ export default function YouTubeSection({ videos, apiError, debugInfo }: YouTubeS
             </motion.div>
 
             {/* Thumbnail Row */}
-            <div className="relative mb-6 pt-4">
+            <div className="relative mb-6 pt-8 overflow-visible">
               {/* Left Arrow Button */}
               <button
                 onClick={() => scroll('left')}
@@ -149,7 +149,7 @@ export default function YouTubeSection({ videos, apiError, debugInfo }: YouTubeS
 
               <div
                 ref={scrollContainerRef}
-                className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory px-12 hide-scrollbar"
+                className="flex gap-4 overflow-x-auto py-6 snap-x snap-mandatory px-12 hide-scrollbar"
                 style={{ touchAction: 'pan-x' }}
               >
 
