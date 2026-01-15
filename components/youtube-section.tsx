@@ -217,6 +217,57 @@ export default function YouTubeSection({ videos }: YouTubeSectionProps) {
                     </motion.div>
                   )
                 })}
+
+                {/* View More Card */}
+                <motion.div
+                  className="flex-shrink-0 w-64 snap-start"
+                  initial={{ opacity: 0, y: 30, rotate: 2 }}
+                  whileInView={{ opacity: 1, y: 0, rotate: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.8, duration: 0.8 }}
+                  whileHover={{ scale: 1.05, rotate: 0 }}
+                >
+                  <a
+                    href="https://www.youtube.com/@alisonchristoff"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
+                    <div
+                      className="flex items-center justify-center aspect-video"
+                      style={{
+                        border: `3px solid ${siteConfig.colors.sage}`,
+                        backgroundColor: siteConfig.colors.deepBg,
+                        transform: 'rotate(1deg)',
+                        boxShadow: '0 6px 20px rgba(0,0,0,0.4)'
+                      }}
+                    >
+                      <div className="text-center px-4">
+                        <div className="text-4xl mb-2">→</div>
+                        <h3
+                          className="text-sm font-black uppercase"
+                          style={{
+                            color: siteConfig.colors.white,
+                            fontFamily: 'var(--font-space-grotesk)',
+                            lineHeight: 1.4
+                          }}
+                        >
+                          VIEW MORE<br />ON YOUTUBE
+                        </h3>
+                      </div>
+                    </div>
+
+                    {/* Accent bar */}
+                    <div style={{
+                      height: '3px',
+                      width: '70%',
+                      backgroundColor: siteConfig.colors.sage,
+                      opacity: 0.7,
+                      transform: 'rotate(-1deg)',
+                      marginTop: '0.5rem'
+                    }} />
+                  </a>
+                </motion.div>
               </div>
             </div>
 
