@@ -116,7 +116,7 @@ export default function YouTubeSection({ videos, apiError, debugInfo }: YouTubeS
             </motion.div>
 
             {/* Thumbnail Row */}
-            <div className="relative mb-6">
+            <div className="relative mb-6 pt-4">
               {/* Left Arrow Button */}
               <button
                 onClick={() => scroll('left')}
