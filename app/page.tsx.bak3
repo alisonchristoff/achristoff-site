@@ -1,9 +1,7 @@
-"use client"
-
-import { useState, useEffect } from "react"
 import Image from "next/image"
 import Navigation from "@/components/navigation"
 import { siteConfig } from "@/config/site"
+import { getLatestVideos } from "@/app/lib/youtube"
 import YouTubeSection from "@/components/youtube-section"
 import { motion } from "framer-motion"
 
@@ -15,15 +13,8 @@ const Icons = {
   ),
 }
 
-export default function Home() {
-  const [videos, setVideos] = useState([])
-
-  useEffect(() => {
-    fetch('/api/youtube')
-      .then(res => res.json())
-      .then(data => setVideos(data.videos || []))
-      .catch(err => console.error('Failed to fetch videos:', err))
-  }, [])
+export default async function Home() {
+  const videos = await getLatestVideos()
 
   return (
     <>
@@ -235,8 +226,6 @@ export default function Home() {
           transition={{ duration: 1.2, ease: "easeInOut" }}
         />
 
-        {/* YOUTUBE VIDEO SHOWCASE - Latest long-form content */}
-        <YouTubeSection videos={videos} />
 
         {/* Visual divider - animated */}
         <motion.div
