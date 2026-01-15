@@ -431,7 +431,7 @@ export default function Home() {
         <footer className="py-6 border-t-4" style={{ borderColor: siteConfig.colors.midBg }}>
           <div className="max-w-7xl mx-auto px-4">
             <p className="text-[9px] uppercase tracking-widest text-right" style={{ color: siteConfig.colors.darkGray, opacity: 0.5 }}>
-              © 2025 {siteConfig.name.toUpperCase()} // ALL RIGHTS RESERVED
+              © {new Date().getFullYear()} {siteConfig.name.toUpperCase()} // ALL RIGHTS RESERVED
             </p>
           </div>
         </footer>
