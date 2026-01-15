@@ -1,5 +1,6 @@
 "use client"
 
+import { useRef } from "react"
 import Image from "next/image"
 import { siteConfig } from "@/config/site"
 import { motion } from "framer-motion"
@@ -9,6 +10,22 @@ interface YouTubeSectionProps {
 }
 
 export default function YouTubeSection({ videos }: YouTubeSectionProps) {
+  const scrollContainerRef = useRef<HTMLDivElement>(null)
+
+  const scroll = (direction: 'left' | 'right') => {
+    if (scrollContainerRef.current) {
+      const scrollAmount = 300 // Scroll by ~1 video width
+      const currentScroll = scrollContainerRef.current.scrollLeft
+      const targetScroll = direction === 'left'
+        ? currentScroll - scrollAmount
+        : currentScroll + scrollAmount
+
+      scrollContainerRef.current.scrollTo({
+        left: targetScroll,
+        behavior: 'smooth'
+      })
+    }
+  }
   return (
     <motion.section
       className="py-8 md:py-12 px-4 relative"
@@ -98,21 +115,66 @@ export default function YouTubeSection({ videos }: YouTubeSectionProps) {
 
             {/* Thumbnail Row */}
             <div className="relative mb-6">
-              <div className="flex gap-4 overflow-x-auto pb-4 md:grid md:grid-cols-3 md:overflow-visible snap-x snap-mandatory pr-16 md:pr-0 hide-scrollbar">
+              {/* Left Arrow Button */}
+              <button
+                onClick={() => scroll('left')}
+                className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center transition-all hover:scale-110"
+                style={{
+                  backgroundColor: `${siteConfig.colors.deepBg}cc`,
+                  border: `2px solid ${siteConfig.colors.sage}`,
+                  color: siteConfig.colors.white,
+                  transform: 'translateY(-50%) rotate(-2deg)'
+                }}
+                aria-label="Scroll left"
+              >
+                <span className="text-2xl font-black">←</span>
+              </button>
 
-                {videos.slice(0, 3).map((video: any, idx: number) => {
-                  const colors = [siteConfig.colors.rust, siteConfig.colors.slate, siteConfig.colors.sage]
-                  const accentColors = [siteConfig.colors.mauve, siteConfig.colors.rust, siteConfig.colors.slate]
-                  const rotations = [-1, 0.5, -0.5]
+              {/* Right Arrow Button */}
+              <button
+                onClick={() => scroll('right')}
+                className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center transition-all hover:scale-110"
+                style={{
+                  backgroundColor: `${siteConfig.colors.deepBg}cc`,
+                  border: `2px solid ${siteConfig.colors.rust}`,
+                  color: siteConfig.colors.white,
+                  transform: 'translateY(-50%) rotate(2deg)'
+                }}
+                aria-label="Scroll right"
+              >
+                <span className="text-2xl font-black">→</span>
+              </button>
+
+              <div
+                ref={scrollContainerRef}
+                className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory px-12 hide-scrollbar"
+              >
+
+                {videos.slice(0, 5).map((video: any, idx: number) => {
+                  const colors = [
+                    siteConfig.colors.rust,
+                    siteConfig.colors.slate,
+                    siteConfig.colors.sage,
+                    siteConfig.colors.mauve,
+                    siteConfig.colors.rust
+                  ]
+                  const accentColors = [
+                    siteConfig.colors.mauve,
+                    siteConfig.colors.rust,
+                    siteConfig.colors.slate,
+                    siteConfig.colors.sage,
+                    siteConfig.colors.mauve
+                  ]
+                  const rotations = [-1, 0.5, -0.5, 1, -0.5]
 
                   return (
                     <motion.div
                       key={video.id}
-                      className="flex-shrink-0 w-64 md:w-full snap-start"
+                      className="flex-shrink-0 w-64 snap-start"
                       initial={{ opacity: 0, y: 30, rotate: rotations[idx] - 2 }}
                       whileInView={{ opacity: 1, y: 0, rotate: rotations[idx] }}
                       viewport={{ once: true }}
-                      transition={{ delay: 0.3 + idx * 0.15, duration: 0.8 }}
+                      transition={{ delay: 0.3 + idx * 0.1, duration: 0.8 }}
                       whileHover={{ scale: 1.05, rotate: 0 }}
                     >
                       <a href={`https://youtube.com/watch?v=${video.id}`}
@@ -138,7 +200,7 @@ export default function YouTubeSection({ videos }: YouTubeSectionProps) {
                             style={{
                               color: siteConfig.colors.white,
                               fontFamily: 'var(--font-space-grotesk)',
-                              transform: `rotate(${[0.5, -0.5, 1][idx]}deg)`
+                              transform: `rotate(${[0.5, -0.5, 1, -1, 0.5][idx]}deg)`
                             }}>
                           {video.snippet.title}
                         </h3>
@@ -146,7 +208,7 @@ export default function YouTubeSection({ videos }: YouTubeSectionProps) {
                         {/* Accent bar */}
                         <div style={{
                           height: '3px',
-                          width: `${[80, 65, 90][idx]}%`,
+                          width: `${[80, 65, 90, 75, 85][idx]}%`,
                           backgroundColor: accentColors[idx],
                           opacity: 0.7,
                           transform: 'rotate(-1deg)'
@@ -155,11 +217,6 @@ export default function YouTubeSection({ videos }: YouTubeSectionProps) {
                     </motion.div>
                   )
                 })}
-              </div>
-
-              {/* Mobile scroll indicator */}
-              <div className="md:hidden absolute right-0 top-0 bottom-4 w-16 bg-gradient-to-l from-black/80 to-transparent pointer-events-none flex items-center justify-center">
-                <span className="text-2xl opacity-60" style={{ color: siteConfig.colors.white }}>→</span>
               </div>
             </div>
 
