@@ -15,7 +15,7 @@ export async function getLatestVideos() {
     const maxPages = 4 // Fetch up to 200 videos (50 per page * 4)
 
     for (let page = 0; page < maxPages; page++) {
-      const searchUrl = `https://www.googleapis.com/youtube/v3/search?` +
+      const searchUrl: string = `https://www.googleapis.com/youtube/v3/search?` +
         `key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet&order=date` +
         `&maxResults=50&type=video` +
         (nextPageToken ? `&pageToken=${nextPageToken}` : '')
