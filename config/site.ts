@@ -70,13 +70,15 @@ export const siteConfig = {
   // About page content
   about: {
     title: "About Me",
-    content: `
-      Write your longer bio here. This is where you can tell your story, 
-      share your background, and connect with your audience on a deeper level.
-      
-      Talk about your journey with music, your podcast community, and what 
-      intentionality and presence mean to you.
-    `,
+    content: `Hello, I am Alison Christoff.
+
+This space lies at the intersection of living intentionally and contemplating how ever-evolving technology shifts the way we live.
+
+I am a musician, thinker, lover of connection and thought-provoking conversation,
+
+And constantly navigating how to shape my role in this strange world.
+
+Welcome`,
   },
 
   // Brand Colors - ILLUMINATED MANUSCRIPT MODE

@@ -17,16 +17,16 @@ export default function About() {
             <h1
               className="text-4xl sm:text-5xl font-bold mb-6"
               style={{
-                color: siteConfig.colors.text,
+                color: siteConfig.colors.deepBg,
                 fontFamily: 'var(--font-bitter), serif'
               }}
             >
               {siteConfig.about.title}
             </h1>
-            
-            <div 
+
+            <div
               className="text-lg leading-relaxed whitespace-pre-line"
-              style={{ color: siteConfig.colors.text }}
+              style={{ color: siteConfig.colors.deepBg }}
             >
               {siteConfig.about.content}
             </div>
@@ -39,7 +39,7 @@ export default function About() {
                 <h2
                   className="text-xl font-semibold mb-3"
                   style={{
-                    color: siteConfig.colors.text,
+                    color: siteConfig.colors.deepBg,
                     fontFamily: 'var(--font-bitter), serif'
                   }}
                 >
