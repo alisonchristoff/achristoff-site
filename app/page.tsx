@@ -53,9 +53,13 @@ export default function Home() {
 
   const handleIntroComplete = () => {
     setIntroFading(true)
+    // Start content animations 400ms into the fade (overlap/cross-fade)
+    setTimeout(() => {
+      setShowContent(true)
+    }, 400)
+    // Remove intro after full fade completes
     setTimeout(() => {
       setShowIntro(false)
-      setShowContent(true)
     }, 800)
   }
 
