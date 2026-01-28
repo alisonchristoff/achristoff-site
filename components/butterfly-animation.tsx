@@ -241,7 +241,7 @@ const ButterflyAnimation: React.FC<ButterflyAnimationProps> = ({ onComplete }) =
                 : 'drop-shadow(2px 2px 0px rgba(0,0,0,0.5))'
             }}
           >
-            <svg width="64" height="96" viewBox="0 0 12 16" style={{ imageRendering: 'pixelated' }}>
+            <svg width="64" height="96" viewBox="0 0 12 16" style={{ imageRendering: 'pixelated', overflow: 'visible' }}>
               {/* Shackle - opens when unlocking */}
               <g style={{
                 transform: stage === 'unlocking' ? 'translateY(-6px)' : 'translateY(0)',
