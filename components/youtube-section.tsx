@@ -9,9 +9,10 @@ interface YouTubeSectionProps {
   videos: any[]
   apiError?: string | null
   debugInfo?: any
+  animationsEnabled?: boolean
 }
 
-export default function YouTubeSection({ videos, apiError, debugInfo }: YouTubeSectionProps) {
+export default function YouTubeSection({ videos, apiError, debugInfo, animationsEnabled = true }: YouTubeSectionProps) {
   const scrollContainerRef = useRef<HTMLDivElement>(null)
 
   const scroll = (direction: 'left' | 'right') => {
@@ -33,8 +34,7 @@ export default function YouTubeSection({ videos, apiError, debugInfo }: YouTubeS
       className="py-8 md:py-12 px-4 relative"
       style={{ transform: 'rotate(-0.5deg)' }}
       initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
+      animate={animationsEnabled ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
       transition={{ duration: 1.0, ease: [0.43, 0.13, 0.62, 1.45] }}
     >
       <div className="max-w-5xl mx-auto">
@@ -50,8 +50,7 @@ export default function YouTubeSection({ videos, apiError, debugInfo }: YouTubeS
             paintOrder: 'stroke fill'
           }}
           initial={{ opacity: 0, x: -40, rotate: -5 }}
-          whileInView={{ opacity: 1, x: 0, rotate: -2 }}
-          viewport={{ once: true }}
+          animate={animationsEnabled ? { opacity: 1, x: 0, rotate: -2 } : { opacity: 0, x: -40, rotate: -5 }}
           transition={{ duration: 0.9, ease: [0.68, -0.55, 0.265, 1.55] }}
         >
           LATEST VIDEOS
@@ -68,7 +67,7 @@ export default function YouTubeSection({ videos, apiError, debugInfo }: YouTubeS
                 boxShadow: `0 12px 48px rgba(0,0,0,0.5), 0 0 30px ${siteConfig.colors.mauve}33`
               }}
               initial={{ opacity: 0, scale: 0.9, rotate: -3 }}
-              whileInView={{ opacity: 1, scale: 1, rotate: 1 }}
+              animate={animationsEnabled ? { opacity: 1, scale: 1, rotate: 1 } : { opacity: 0, scale: 0.9, rotate: -3 }}
               transition={{ duration: 1.0, delay: 0.2, ease: [0.68, -0.55, 0.265, 1.55] }}
             >
               {/* Corner brackets - all 4 colors */}
@@ -175,8 +174,7 @@ export default function YouTubeSection({ videos, apiError, debugInfo }: YouTubeS
                       key={video.id}
                       className="flex-shrink-0 w-64 snap-start"
                       initial={{ opacity: 0, y: 30, rotate: rotations[idx] - 2 }}
-                      whileInView={{ opacity: 1, y: 0, rotate: rotations[idx] }}
-                      viewport={{ once: true }}
+                      animate={animationsEnabled ? { opacity: 1, y: 0, rotate: rotations[idx] } : { opacity: 0, y: 30, rotate: rotations[idx] - 2 }}
                       transition={{ delay: 0.3 + idx * 0.1, duration: 0.8 }}
                       whileHover={{ scale: 1.05, rotate: 0 }}
                     >
@@ -225,8 +223,7 @@ export default function YouTubeSection({ videos, apiError, debugInfo }: YouTubeS
                 <motion.div
                   className="flex-shrink-0 w-64 snap-start"
                   initial={{ opacity: 0, y: 30, rotate: 2 }}
-                  whileInView={{ opacity: 1, y: 0, rotate: 1 }}
-                  viewport={{ once: true }}
+                  animate={animationsEnabled ? { opacity: 1, y: 0, rotate: 1 } : { opacity: 0, y: 30, rotate: 2 }}
                   transition={{ delay: 0.8, duration: 0.8 }}
                   whileHover={{ scale: 1.05, rotate: 0 }}
                 >
@@ -293,7 +290,7 @@ export default function YouTubeSection({ videos, apiError, debugInfo }: YouTubeS
               whileHover={{ scale: 1.08, rotate: 1 }}
               whileTap={{ scale: 0.95 }}
               initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
+              animate={animationsEnabled ? { opacity: 1 } : { opacity: 0 }}
               transition={{ delay: 0.8 }}
             >
               SEE MORE ON YOUTUBE →

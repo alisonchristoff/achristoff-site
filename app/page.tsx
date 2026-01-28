@@ -323,7 +323,7 @@ export default function Home() {
         />
 
         {/* YOUTUBE VIDEO SHOWCASE - Latest long-form content */}
-        <YouTubeSection videos={videos} apiError={apiError} debugInfo={debugInfo} />
+        <YouTubeSection videos={videos} apiError={apiError} debugInfo={debugInfo} animationsEnabled={showContent} />
 
         {/* Visual divider - animated */}
         <motion.div
