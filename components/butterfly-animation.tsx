@@ -65,8 +65,8 @@ const ButterflyAnimation: React.FC<ButterflyAnimationProps> = ({ onComplete }) =
     osc.frequency.setValueAtTime(600, ctx.currentTime);
     osc.frequency.setValueAtTime(800, ctx.currentTime + 0.05);
 
-    gain.gain.setValueAtTime(0.08, ctx.currentTime);
-    gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.1);
+    gain.gain.setValueAtTime(0.03, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.005, ctx.currentTime + 0.1);
 
     osc.start(ctx.currentTime);
     osc.stop(ctx.currentTime + 0.1);
@@ -86,8 +86,8 @@ const ButterflyAnimation: React.FC<ButterflyAnimationProps> = ({ onComplete }) =
       gain.connect(ctx.destination);
 
       osc.frequency.setValueAtTime(freq, ctx.currentTime + i * 0.15);
-      gain.gain.setValueAtTime(0.15, ctx.currentTime + i * 0.15);
-      gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + i * 0.15 + 0.4);
+      gain.gain.setValueAtTime(0.06, ctx.currentTime + i * 0.15);
+      gain.gain.exponentialRampToValueAtTime(0.005, ctx.currentTime + i * 0.15 + 0.4);
 
       osc.start(ctx.currentTime + i * 0.15);
       osc.stop(ctx.currentTime + i * 0.15 + 0.4);
@@ -112,8 +112,8 @@ const ButterflyAnimation: React.FC<ButterflyAnimationProps> = ({ onComplete }) =
       gain.connect(ctx.destination);
 
       osc.frequency.setValueAtTime(80, ctx.currentTime);
-      gain.gain.setValueAtTime(0.3, ctx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.08);
+      gain.gain.setValueAtTime(0.12, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.005, ctx.currentTime + 0.08);
 
       osc.start(ctx.currentTime);
       osc.stop(ctx.currentTime + 0.08);
