@@ -6,6 +6,7 @@ import Navigation from "@/components/navigation"
 import { siteConfig } from "@/config/site"
 import YouTubeSection from "@/components/youtube-section"
 import { motion } from "framer-motion"
+import ButterflyAnimation from "@/components/butterfly-animation"
 
 const Icons = {
   mail: () => (
@@ -29,6 +30,9 @@ export default function Home() {
   const [videos, setVideos] = useState([])
   const [apiError, setApiError] = useState<string | null>(null)
   const [debugInfo, setDebugInfo] = useState<any>(null)
+  const [showIntro, setShowIntro] = useState(true)
+  const [introFading, setIntroFading] = useState(false)
+  const [showContent, setShowContent] = useState(false)
 
   useEffect(() => {
     fetch('/api/youtube')
@@ -47,9 +51,28 @@ export default function Home() {
       })
   }, [])
 
+  const handleIntroComplete = () => {
+    setIntroFading(true)
+    setTimeout(() => {
+      setShowIntro(false)
+      setShowContent(true)
+    }, 800)
+  }
+
   return (
     <>
-      <Navigation />
+      {/* Intro Animation */}
+      {showIntro && (
+        <div className={introFading ? 'intro-fade-out' : ''}>
+          <ButterflyAnimation onComplete={handleIntroComplete} />
+        </div>
+      )}
+
+      {/* Main Content - visible behind semi-transparent intro */}
+      <div
+        className={showContent ? 'content-fade-in' : ''}
+      >
+        <Navigation />
 
       {/* Artistic Personal Brand - Intentional Design with Clear UX */}
       <main className="min-h-screen pt-16 relative" style={{ backgroundColor: siteConfig.colors.lightBg }}>
@@ -67,7 +90,7 @@ export default function Home() {
                 opacity: 0.3
               }}
               initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 0.3, scale: 1 }}
+              animate={showContent ? { opacity: 0.3, scale: 1 } : { opacity: 0, scale: 0.8 }}
               transition={{ duration: 1.2, delay: 0.4, ease: [0.68, -0.55, 0.265, 1.55] }}
               aria-hidden="true"
             />
@@ -81,7 +104,7 @@ export default function Home() {
                 opacity: 0.25
               }}
               initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 0.25, x: 0 }}
+              animate={showContent ? { opacity: 0.25, x: 0 } : { opacity: 0, x: 50 }}
               transition={{ duration: 1.5, delay: 0.8, ease: [0.43, 0.13, 0.62, 1.45] }}
               aria-hidden="true"
             />
@@ -93,7 +116,7 @@ export default function Home() {
               <motion.div
                 className="relative mx-auto md:mx-0"
                 initial={{ opacity: 0, scale: 0.7, rotate: -15 }}
-                animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                animate={showContent ? { opacity: 1, scale: 1, rotate: 0 } : { opacity: 0, scale: 0.7, rotate: -15 }}
                 transition={{
                   duration: 1.2,
                   delay: 0.1,
@@ -125,7 +148,7 @@ export default function Home() {
                     transform: 'rotate(2deg)'
                   }}
                   initial={{ opacity: 0, scale: 0, rotate: -45 }}
-                  animate={{ opacity: 1, scale: 1, rotate: 2 }}
+                  animate={showContent ? { opacity: 1, scale: 1, rotate: 2 } : { opacity: 0, scale: 0, rotate: -45 }}
                   transition={{
                     duration: 0.8,
                     delay: 1.0,
@@ -150,7 +173,7 @@ export default function Home() {
                     display: 'inline-block'
                   }}
                   initial={{ opacity: 0, y: 30, rotate: -5 }}
-                  animate={{ opacity: 1, y: 0, rotate: -1 }}
+                  animate={showContent ? { opacity: 1, y: 0, rotate: -1 } : { opacity: 0, y: 30, rotate: -5 }}
                   transition={{
                     duration: 0.9,
                     delay: 0.3,
@@ -169,7 +192,7 @@ export default function Home() {
                     transform: 'rotate(1deg)'
                   }}
                   initial={{ opacity: 0, x: -50, rotate: -3 }}
-                  animate={{ opacity: 1, x: 0, rotate: 1 }}
+                  animate={showContent ? { opacity: 1, x: 0, rotate: 1 } : { opacity: 0, x: -50, rotate: -3 }}
                   transition={{
                     duration: 1.0,
                     delay: 0.6,
@@ -201,7 +224,7 @@ export default function Home() {
                   className="text-xs uppercase tracking-wider mb-6 opacity-60"
                   style={{ color: siteConfig.colors.darkGray }}
                   initial={{ opacity: 0 }}
-                  animate={{ opacity: 0.6 }}
+                  animate={showContent ? { opacity: 0.6 } : { opacity: 0 }}
                   transition={{ duration: 1.2, delay: 1.0 }}
                 >
                   📍 {siteConfig.profile.location}
@@ -211,7 +234,7 @@ export default function Home() {
                 <motion.div
                   className="flex flex-wrap gap-4"
                   initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  animate={showContent ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                   transition={{
                     duration: 0.8,
                     delay: 1.2,
@@ -437,6 +460,7 @@ export default function Home() {
         </footer>
 
       </main>
+      </div>
     </>
   )
 }
