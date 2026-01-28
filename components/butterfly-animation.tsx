@@ -244,15 +244,18 @@ const ButterflyAnimation: React.FC<ButterflyAnimationProps> = ({ onComplete }) =
             <svg width="64" height="96" viewBox="0 0 12 16" style={{ imageRendering: 'pixelated' }}>
               {/* Shackle - opens when unlocking */}
               <g style={{
-                transform: stage === 'unlocking' ? 'translateY(-6px)' : 'translateY(0px)',
-                transition: 'transform 0.3s ease-out'
+                transform: stage === 'unlocking' ? 'translateY(-6px)' : 'translateY(0)',
+                transition: stage === 'unlocking' ? 'transform 0.3s ease-out' : 'none'
               }}>
+                {/* Top arch - connects the two sides to form closed loop */}
+                <rect x="4" y="0" width="4" height="1" fill={stage === 'unlocking' ? '#00FF00' : '#FFED4E'} />
+                <rect x="5" y="1" width="2" height="1" fill={stage === 'unlocking' ? '#00FF00' : '#FFD700'} />
+                {/* Left side of shackle */}
                 <rect x="3" y="1" width="2" height="1" fill={stage === 'unlocking' ? '#00FF00' : '#FFD700'} />
+                <rect x="2" y="2" width="2" height="3" fill={stage === 'unlocking' ? '#00FF00' : '#FFD700'} />
+                {/* Right side of shackle */}
                 <rect x="7" y="1" width="2" height="1" fill={stage === 'unlocking' ? '#00FF00' : '#FFD700'} />
-                <rect x="2" y="2" width="2" height="2" fill={stage === 'unlocking' ? '#00FF00' : '#FFD700'} />
-                <rect x="8" y="2" width="2" height="2" fill={stage === 'unlocking' ? '#00FF00' : '#FFD700'} />
-                <rect x="2" y="4" width="2" height="1" fill={stage === 'unlocking' ? '#00FF00' : '#FFA500'} />
-                <rect x="8" y="4" width="2" height="1" fill={stage === 'unlocking' ? '#00FF00' : '#FFA500'} />
+                <rect x="8" y="2" width="2" height="3" fill={stage === 'unlocking' ? '#00FF00' : '#FFD700'} />
               </g>
 
               {/* Lock body */}
