@@ -237,7 +237,7 @@ const ButterflyAnimation: React.FC<ButterflyAnimationProps> = ({ onComplete }) =
             style={{
               imageRendering: 'pixelated',
               filter: stage === 'unlocking'
-                ? 'drop-shadow(0 0 20px #00FF00) drop-shadow(0 0 30px #00FF00)'
+                ? 'drop-shadow(0 0 20px #FFD700) drop-shadow(0 0 30px #FFFACD)'
                 : 'drop-shadow(2px 2px 0px rgba(0,0,0,0.5))'
             }}
           >
@@ -248,14 +248,14 @@ const ButterflyAnimation: React.FC<ButterflyAnimationProps> = ({ onComplete }) =
                 transition: stage === 'unlocking' ? 'transform 0.3s ease-out' : 'none'
               }}>
                 {/* Top arch - connects the two sides to form closed loop */}
-                <rect x="4" y="0" width="4" height="1" fill={stage === 'unlocking' ? '#00FF00' : '#FFED4E'} />
-                <rect x="5" y="1" width="2" height="1" fill={stage === 'unlocking' ? '#00FF00' : '#FFD700'} />
+                <rect x="4" y="0" width="4" height="1" fill={stage === 'unlocking' ? '#FFFACD' : '#FFED4E'} />
+                <rect x="5" y="1" width="2" height="1" fill={stage === 'unlocking' ? '#FFF8B3' : '#FFD700'} />
                 {/* Left side of shackle */}
-                <rect x="3" y="1" width="2" height="1" fill={stage === 'unlocking' ? '#00FF00' : '#FFD700'} />
-                <rect x="2" y="2" width="2" height="3" fill={stage === 'unlocking' ? '#00FF00' : '#FFD700'} />
+                <rect x="3" y="1" width="2" height="1" fill={stage === 'unlocking' ? '#FFF8B3' : '#FFD700'} />
+                <rect x="2" y="2" width="2" height="3" fill={stage === 'unlocking' ? '#FFF8B3' : '#FFD700'} />
                 {/* Right side of shackle */}
-                <rect x="7" y="1" width="2" height="1" fill={stage === 'unlocking' ? '#00FF00' : '#FFD700'} />
-                <rect x="8" y="2" width="2" height="3" fill={stage === 'unlocking' ? '#00FF00' : '#FFD700'} />
+                <rect x="7" y="1" width="2" height="1" fill={stage === 'unlocking' ? '#FFF8B3' : '#FFD700'} />
+                <rect x="8" y="2" width="2" height="3" fill={stage === 'unlocking' ? '#FFF8B3' : '#FFD700'} />
               </g>
 
               {/* Lock body */}
@@ -298,18 +298,36 @@ const ButterflyAnimation: React.FC<ButterflyAnimationProps> = ({ onComplete }) =
               ))}
             </div>
 
-            {/* Sparkles around lock */}
+            {/* Sparkles around shackle */}
+            <div className="absolute left-1/2 top-[58%] -translate-x-1/2 -translate-y-1/2">
+              {[...Array(6)].map((_, i) => (
+                <div
+                  key={`shackle-${i}`}
+                  className="absolute w-2 h-2 bg-[#FFFACD]"
+                  style={{
+                    left: '50%',
+                    top: '50%',
+                    transform: `rotate(${i * 60}deg) translateY(-20px)`,
+                    imageRendering: 'pixelated',
+                    boxShadow: '0 0 12px #FFD700',
+                    animation: 'pixelBurst 0.8s ease-out forwards'
+                  }}
+                />
+              ))}
+            </div>
+
+            {/* Sparkles around lock body */}
             <div className="absolute left-1/2 top-[70%] -translate-x-1/2 -translate-y-1/2">
               {[...Array(8)].map((_, i) => (
                 <div
                   key={`lock-${i}`}
-                  className="absolute w-2 h-2 bg-[#00FF00]"
+                  className="absolute w-2 h-2 bg-[#FFD700]"
                   style={{
                     left: '50%',
                     top: '50%',
                     transform: `rotate(${i * 45}deg) translateY(-30px)`,
                     imageRendering: 'pixelated',
-                    boxShadow: '0 0 16px #00FF00',
+                    boxShadow: '0 0 16px #FFD700',
                     animation: 'pixelBurst 1s ease-out forwards'
                   }}
                 />
