@@ -37,17 +37,15 @@ export default function YouTubeSection({ videos, apiError, debugInfo, animations
       animate={animationsEnabled ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
       transition={{ duration: 1.0, ease: [0.43, 0.13, 0.62, 1.45] }}
     >
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-4xl mx-auto">
         {/* Section Heading */}
         <motion.h2
-          className="text-4xl md:text-5xl lg:text-6xl font-black mb-8 inline-block px-6 py-3 glitch-text-slow"
+          className="text-3xl md:text-4xl font-black mb-8 inline-block px-6 py-4 glitch-text-slow"
           style={{
             color: siteConfig.colors.white,
             fontFamily: 'var(--font-space-grotesk), sans-serif',
-            border: `4px solid ${siteConfig.colors.sage}`,
-            transform: 'rotate(-2deg)',
-            WebkitTextStroke: `1px ${siteConfig.colors.rust}`,
-            paintOrder: 'stroke fill'
+            border: `3px solid ${siteConfig.colors.sage}`,
+            transform: 'rotate(-2deg)'
           }}
           initial={{ opacity: 0, x: -40, rotate: -5 }}
           animate={animationsEnabled ? { opacity: 1, x: 0, rotate: -2 } : { opacity: 0, x: -40, rotate: -5 }}

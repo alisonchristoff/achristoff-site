@@ -344,11 +344,11 @@ export default function Home() {
 
         {/* FORMER BANDS - Scannable grid with artistic rotation */}
         <section className="py-8 md:py-12 px-4">
-          <div className="max-w-5xl mx-auto">
+          <div className="max-w-4xl mx-auto">
 
             {/* Section heading - animated */}
             <motion.h2
-              className="text-xl md:text-2xl font-black mb-8 inline-block px-4 py-2"
+              className="text-3xl md:text-4xl font-black mb-8 inline-block px-6 py-4"
               style={{
                 color: siteConfig.colors.white,
                 fontFamily: 'var(--font-space-grotesk), sans-serif',
