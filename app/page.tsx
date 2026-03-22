@@ -1,10 +1,10 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import Image from "next/image"
 import Navigation from "@/components/navigation"
 import { siteConfig } from "@/config/site"
-import YouTubeSection from "@/components/youtube-section"
+
 import { motion } from "framer-motion"
 import ButterflyAnimation from "@/components/butterfly-animation"
 
@@ -27,29 +27,9 @@ const Icons = {
 }
 
 export default function Home() {
-  const [videos, setVideos] = useState([])
-  const [apiError, setApiError] = useState<string | null>(null)
-  const [debugInfo, setDebugInfo] = useState<any>(null)
   const [showIntro, setShowIntro] = useState(true)
   const [introFading, setIntroFading] = useState(false)
   const [showContent, setShowContent] = useState(false)
-
-  useEffect(() => {
-    fetch('/api/youtube')
-      .then(res => res.json())
-      .then(data => {
-        setVideos(data.videos || [])
-        if (data.error) {
-          setApiError(data.error)
-          setDebugInfo(data.debug)
-          console.error('YouTube API Error:', data.error, data.debug)
-        }
-      })
-      .catch(err => {
-        console.error('Failed to fetch videos:', err)
-        setApiError(err.message)
-      })
-  }, [])
 
   const handleIntroComplete = () => {
     setIntroFading(true)
@@ -318,22 +298,6 @@ export default function Home() {
           className="w-full h-px mx-auto my-8 md:my-10"
           style={{
             background: `linear-gradient(90deg, transparent, ${siteConfig.colors.sage}, transparent)`,
-            opacity: 0.3
-          }}
-          initial={{ scaleX: 0, opacity: 0 }}
-          whileInView={{ scaleX: 1, opacity: 0.3 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.2, ease: "easeInOut" }}
-        />
-
-        {/* YOUTUBE VIDEO SHOWCASE - Latest long-form content */}
-        <YouTubeSection videos={videos} apiError={apiError} debugInfo={debugInfo} animationsEnabled={showContent} />
-
-        {/* Visual divider - animated */}
-        <motion.div
-          className="w-full h-px mx-auto my-8 md:my-10"
-          style={{
-            background: `linear-gradient(90deg, transparent, ${siteConfig.colors.slate}, transparent)`,
             opacity: 0.3
           }}
           initial={{ scaleX: 0, opacity: 0 }}
